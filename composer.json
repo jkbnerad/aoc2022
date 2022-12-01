@@ -1,5 +1,17 @@
 {
+  "name": "jkbnerad/aoc2022",
+  "description": "",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jakub Nerad",
+      "email": "info@nerad.cz"
+    }
+  ],
   "require-dev": {
+    "roave/security-advisories": "dev-latest"
+    ,
     "nette/tester": "dev-master"
   },
   "require": {
