@@ -1,0 +1,14 @@
+{
+  "require-dev": {
+    "nette/tester": "dev-master"
+  },
+  "require": {
+    "php": "~8.0",
+    "phpstan/phpstan": "^1.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
