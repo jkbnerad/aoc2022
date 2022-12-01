@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\day01;
 
-use App\Day;
+use App\Task;
 
-class Day01 extends Day
+class Day01 extends Task
 {
     public function partA(): int
     {
