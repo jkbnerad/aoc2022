@@ -9,7 +9,7 @@ abstract class Day
     public function __construct(private Input $input)
     {
     }
-    public function getInput(): Input
+    protected function getInput(): Input
     {
         return $this->input;
     }
