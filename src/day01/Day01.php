@@ -35,8 +35,10 @@ class Day01 extends Day
     {
         $sum = 0;
         $three = [];
-        $process = static function ($sum) use (&$three) {
-            if (count($three) < 3) {
+        $sizeOfArray = 0;
+        $process = static function ($sum) use (&$three, &$sizeOfArray) {
+            if ($sizeOfArray < 3) {
+                $sizeOfArray++;
                 $three[] = $sum;
             } else {
                 $min = min($three);
