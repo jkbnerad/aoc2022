@@ -54,28 +54,27 @@ class Day02 extends Task
             [$playerA, $playerB] = explode(' ', $line);
             if ($playerA === 'A') { // kamen
                 if ($playerB === 'X') {
-                    $results += 3; // nuzky
+                    $results += 3; // scissors
                 } elseif ($playerB === 'Y') {
-                    $results += 1 + 3; // kamen
+                    $results += 1 + 3; // rock
                 } else {
-                    $results += 2 + 6; // papir
+                    $results += 2 + 6; // paper
                 }
-            } elseif ($playerA === 'B') { // papir
+            } elseif ($playerA === 'B') { // paper
                 if ($playerB === 'X') {
-                    $results += 1; // kamen
+                    $results += 1; // rock
                 } elseif ($playerB === 'Y') {
-                    $results += 2 + 3; // papir
+                    $results += 2 + 3; // paper
                 } else {
-                    $results += 3 + 6; // nuzky
+                    $results += 3 + 6; // scissors
                 }
-            } else { // nuzky
+            } else { // scissors
                 if ($playerB === 'X') {
-                    $results += 2; // papir
+                    $results += 2; // paper
                 } elseif ($playerB === 'Y') {
-                    $results += 3 + 3; // nuzky
+                    $results += 3 + 3; // scissors
                 } else {
-                    $win = 1;
-                    $results += 1 + 6; // kamen
+                    $results += 1 + 6; // rock
                 }
             }
         }
