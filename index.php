@@ -7,13 +7,13 @@ use App\Input;
 
 require_once 'vendor/autoload.php';
 
-$days = [1];
+$days = [1, 2];
 foreach ($days as $day) {
     $timeStart = microtime(true);
     $memoryStart = memory_get_usage(true);
     $day = str_pad((string)$day, 2, '0', STR_PAD_LEFT);
     print sprintf("=== \033[34mDay %s\033[0m ===", $day) . PHP_EOL;
-    $className = sprintf('App\day01\Day%s', $day);
+    $className = sprintf('App\day%s\Day%s', $day, $day);
     /** @var Task $class */
     if (class_exists($className)) {
         $class = new $className(new Input(__DIR__ . '/src/day' . $day . '/input.txt'));
