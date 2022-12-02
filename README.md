@@ -7,7 +7,7 @@ https://adventofcode.com/2022/
 | Day | Part A | Part B |
 |-----|--------|--------|
 | 01  | ✅      | ✅      |
-| 02  | -      | -      |
+| 02  | ✅      | ✅      |
 
 ### Install
 
