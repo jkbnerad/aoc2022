@@ -25,39 +25,17 @@ class Day02 extends Task
         foreach ($this->getInput()->getLines() as $line) {
             [$playerA, $playerB] = explode(' ', $line);
 
-            if ($playerA === 'A') { // kamen
-                if($playerB === 'Y') { // papir
-                    $win = 1;
-                } elseif ($playerB === 'X') { // kamen
-                    $win = 0;
-                } else { // nuzky
-                    $win = -1;
-                }
-            } elseif ($playerA === 'B') { // papir
-                if($playerB === 'Y') { // papir
-                    $win = 0;
-                } elseif ($playerB === 'X') { // kamen
-                    $win = -1;
-                } else { // nuzky
-                    $win = 1;
-                }
-            } else { // nuzky
-                if($playerB === 'Y') { // papir
-                    $win = -1;
-                } elseif ($playerB === 'X') { // kamen
-                    $win = 1;
-                } else { // nuzky
-                    $win = 0;
-                }
+            if (ord($playerA) - ord('A') === ord($playerB) - ord('X')) { // draw
+                $results += 3;
+            } elseif ($playerA === 'A' && $playerB === 'Y') { // rock vs. paper
+                $results += 6;
+            } elseif ($playerA === 'B' && $playerB === 'Z') { // paper vs. scissors
+                $results += 6;
+            } elseif ($playerA === 'C' && $playerB === 'X') { // scissors vs. rock
+                $results += 6;
             }
 
             $results += $points[$playerB];
-            if ($win === 1) {
-                $results += 6;
-            } elseif ($win === 0) {
-                $results += 3;
-            }
-
         }
 
         return $results;
@@ -65,8 +43,9 @@ class Day02 extends Task
 
     public function partB(): int
     {
-        // kamen, papir, nuzky
-        // A,     B,     C
+        // rock     paper   scissors
+        // A        B       C
+        // X        Y       Z
 
         // X -> -1, Y -> 0, Z -> 1
 
@@ -74,48 +53,31 @@ class Day02 extends Task
         foreach ($this->getInput()->getLines() as $line) {
             [$playerA, $playerB] = explode(' ', $line);
             if ($playerA === 'A') { // kamen
-
                 if ($playerB === 'X') {
-                    $win = -1;
                     $results += 3; // nuzky
                 } elseif ($playerB === 'Y') {
-                    $win = 0;
-                    $results += 1; // kamen
+                    $results += 1 + 3; // kamen
                 } else {
-                    $win = 1;
-                    $results += 2; // papir
+                    $results += 2 + 6; // papir
                 }
-
             } elseif ($playerA === 'B') { // papir
                 if ($playerB === 'X') {
-                    $win = -1;
                     $results += 1; // kamen
                 } elseif ($playerB === 'Y') {
-                    $win = 0;
-                    $results += 2; // papir
+                    $results += 2 + 3; // papir
                 } else {
-                    $win = 1;
-                    $results += 3; // nuzky
+                    $results += 3 + 6; // nuzky
                 }
             } else { // nuzky
                 if ($playerB === 'X') {
-                    $win = -1;
                     $results += 2; // papir
                 } elseif ($playerB === 'Y') {
-                    $win = 0;
-                    $results += 3; // nuzky
+                    $results += 3 + 3; // nuzky
                 } else {
                     $win = 1;
-                    $results += 1; // kamen
+                    $results += 1 + 6; // kamen
                 }
             }
-
-            if ($win === 1) {
-                $results += 6;
-            } elseif ($win === 0) {
-                $results += 3;
-            }
-
         }
 
         return $results;
