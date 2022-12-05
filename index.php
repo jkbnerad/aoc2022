@@ -7,7 +7,7 @@ use App\Input;
 
 require_once 'vendor/autoload.php';
 
-$days = [1, 2, 3];
+$days = [1, 2, 3, 4];
 foreach ($days as $day) {
     $timeStart = microtime(true);
     $memoryStart = memory_get_usage(true);
